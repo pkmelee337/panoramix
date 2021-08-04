@@ -13,13 +13,13 @@ import os
 import io
 
 # Package meta-data.
-NAME = "panoramix-decompiler"
+NAME = "panoramix-decompiler-abi"
 DESCRIPTION = "Decompiler at the heart of Eveem.org https://www.eveem.org/"
-URL = "https://github.com/palkeo/panoramix"
-AUTHOR = "Tomasz Kolinko / palkeo"
-AUTHOR_EMAIL = "panoramix@palkeo.com"
+URL = "https://github.com/pkmelee337/panoramix"
+AUTHOR = "Tomasz Kolinko / palkeo / Henk ter Harmsel"
+AUTHOR_EMAIL = "henk@chaink.io"
 REQUIRES_PYTHON = ">3.8.0"
-
+VERSION = "0.5.2"
 
 # What packages are required for this module to be executed?
 REQUIRED = [
@@ -36,8 +36,6 @@ TESTS_REQUIRE = []
 EXTRAS = {
     # 'fancy feature': ['django'],
 }
-
-VERSION = "0.4"
 
 here = os.path.abspath(os.path.dirname(__file__))
 

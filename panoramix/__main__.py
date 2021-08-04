@@ -3,9 +3,10 @@ import logging
 import sys
 
 import coloredlogs
-import timeout_decorator
+import json
 
 from panoramix.decompiler import decompile_address, decompile_bytecode
+from panoramix.abi import getAbiJson
 from panoramix.utils.helpers import C
 
 logger = logging.getLogger(__name__)
@@ -81,6 +82,9 @@ def print_decompilation(this_addr):
         decompilation = decompile_bytecode(this_addr, function_name)
 
     print(decompilation.text)
+
+    if "--abi" in sys.argv:
+        print("\n\nContract ABI:\n\n" + json.dumps(getAbiJson(decompilation.json), indent=4))
 
 
 def main():
