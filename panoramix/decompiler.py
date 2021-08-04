@@ -15,7 +15,7 @@ from panoramix.loader import Loader
 from panoramix.prettify import explain, pprint_repr, pprint_trace, pretty_type
 from panoramix.vm import VM
 from panoramix.whiles import make_whiles
-from panoramix.utils.helpers import C, rewrite_trace
+from panoramix.utils.helpers import C, rewrite_trace, convert
 
 logger = logging.getLogger(__name__)
 
@@ -23,6 +23,7 @@ logger = logging.getLogger(__name__)
 @dataclasses.dataclass
 class Decompilation:
     text: str = ""
+    html: str = ""
     asm: list = dataclasses.field(default_factory=list)
     json: dict = dataclasses.field(default_factory=dict)
 
@@ -303,5 +304,7 @@ def _decompile_with_loader(loader, only_func_name=None) -> Decompilation:
 
     decompilation.text = text_output.getvalue()
     text_output.close()
+
+    decompilation.html = convert(decompilation.text)
 
     return decompilation
